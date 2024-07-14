@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "div": "pnpm run back-end",
+    "dev": "pnpm run back-end",
     "start": "node server.js",
     "back-end": "nodemon server.js",
     "build": "esbuild server.js --bundle --platform=node --outfile=../../dist/hadith-graph-server.js"
