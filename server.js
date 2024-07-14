@@ -5,13 +5,13 @@ const cookieParser = require('cookie-parser');
 const {readFile} = require("fs");
 const {checkForDuplication, processData} = require("./utils/graphFunctionsUtilities");
 const cors = require("cors");
+const server = express();
 // const logger = require('morgan');
 
 // const indexRouter = require('./routes/index');
 // const usersRouter = require('./routes/users');
 // const graphRoutes = require('./routes/graphRoute')
 
-const server = express();
 
 // view engine setup
 // server.set('views', path.join(__dirname, 'views'))
@@ -51,9 +51,7 @@ server.get('/', (req, res) => {
 });
 
 server.get('/cluster/:clusterNumber', (req, res) => {
-    // res.send('hello world')
     const {clusterNumber} = req.params
-    console.log(clusterNumber)
 
     readFile('./HadithGraphRawData.txt', 'utf8', (err, rawData) => {
         if (err) {
@@ -71,7 +69,6 @@ server.get('/cluster/:clusterNumber', (req, res) => {
         }
 
         // console.log(JSON.stringify(result))
-
         res.status(200).json(result)
         // res.json({status: 200, message: "successful", result: result});
     });
