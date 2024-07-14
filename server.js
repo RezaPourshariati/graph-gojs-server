@@ -1,4 +1,4 @@
-const createError = require('http-errors');
+// const createError = require('http-errors');
 const express = require('express');
 // const path = require('path');
 const cookieParser = require('cookie-parser');
@@ -76,7 +76,7 @@ server.get('/cluster/:clusterNumber', (req, res) => {
 
 const start = async () => {
     try {
-        console.log('Database Connected Successfully.');
+        console.log('Successful..');
         server.listen(5000, () => console.log('Server is listening on port 5000....'));
     } catch (error) {
         console.log(error.message);
