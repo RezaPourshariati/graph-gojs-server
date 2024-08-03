@@ -2,7 +2,6 @@ import {readFile} from "fs";
 import {checkForDuplication, processData} from "../utils/graphFunctionsUtilities";
 
 const express = require('express');
-const {processGraphData} = require("../controllers/processGraphData");
 const router = express.Router();
 
 /* GET api. */
