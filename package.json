@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "pnpm run back-end",
-    "start": "node server.js",
-    "back-end": "nodemon server.js",
+    "dev": "ts-node server.ts",
+    "start": "node server.ts",
+    "back-end": "nodemon server.ts",
     "build": "esbuild server.js --bundle --platform=node --outfile=../../dist/hadith-graph-server.js"
   },
   "dependencies": {
@@ -16,7 +16,8 @@
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
     "nodemon": "^3.1.4",
-    "pug": "2.0.0-beta11"
+    "pug": "2.0.0-beta11",
+    "ts-node": "^10.9.2"
   },
   "devDependencies": {
     "@types/node": "^20.14.10"

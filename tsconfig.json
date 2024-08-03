@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "allowJs": true,
+    "esModuleInterop": true,
+    "lib": [
+      "esnext","DOM"
+    ],
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "downlevelIteration": true,
+    "declaration": true,
+    "declarationDir": "./dist/types",
+    "allowSyntheticDefaultImports": true,
+    "outDir": "./dist",
+    "paths": {
+      "@/*": ["./src/*"],
+      "LIB-UTIL/*": ["../util/src/*"]
+    },
+    "types": [
+      "jest",
+      "node"
+    ]
+  },
+  "include": ["./src"],
+  "exclude": ["dist", "node_modules"]
+}

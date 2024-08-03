@@ -1,4 +1,4 @@
-const generateRandomLightColor = () => {
+function generateRandomLightColor() {
     const minBrightness = 70; // Adjust this value to set the minimum brightness for the color
     return `hsl(${Math.floor(Math.random() * 360)}, ${Math.floor(Math.random() * 50)}%, ${minBrightness + Math.floor(Math.random() * (100 - minBrightness))}%)`
 }
@@ -11,12 +11,12 @@ const solidColors = [
 ]
 
 // Function to randomly choose a color from the solidColors array
-const getRandomSolidColor = () => {
+function getRandomSolidColor() {
     const randomIndex = Math.floor(Math.random() * solidColors.length);
     return solidColors[randomIndex];
 }
 
-const processData = (data) => {
+export function processData(data) {
     const resultArray = {}
 
     data.trim().split('\n').forEach(row => {
@@ -35,16 +35,16 @@ const processData = (data) => {
             }
         }
 
-        resultArray[clusterId].nodes.add({ key: columns[1], hadith: hadith1, hadithId: hadithId1 })
-        resultArray[clusterId].nodes.add({ key: columns[2], hadith: hadith2, hadithId: hadithId2 })
+        resultArray[clusterId].nodes.add({key: columns[1], hadith: hadith1, hadithId: hadithId1})
+        resultArray[clusterId].nodes.add({key: columns[2], hadith: hadith2, hadithId: hadithId2})
 
-        resultArray[clusterId].relations.push({ from: columns[1], to: columns[2] })
+        resultArray[clusterId].relations.push({from: columns[1], to: columns[2]})
     });
 
     return resultArray
 }
 
-const checkForDuplication = (resultArray, clusterNumber) => {
+export function checkForDuplication(resultArray, clusterNumber) {
     const cluster = resultArray[clusterNumber]
     if (!cluster) return
 
@@ -54,7 +54,7 @@ const checkForDuplication = (resultArray, clusterNumber) => {
     })
 
     const filteredNodes = Array.from(nodesMap.values())
-    const filteredResult = { ...cluster, nodes: filteredNodes }
+    const filteredResult = {...cluster, nodes: filteredNodes}
 
     // Adding color to each node
     filteredResult.nodes.forEach(node => {
@@ -74,5 +74,3 @@ const checkForDuplication = (resultArray, clusterNumber) => {
 
     return filteredResult
 }
-
-module.exports = {processData, checkForDuplication}
